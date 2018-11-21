@@ -1,0 +1,14 @@
+from mpl_toolkits.basemap import Basemap
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=[16,10])
+m = Basemap(projection='merc',llcrnrlat=41.60,urcrnrlat=42.10,\
+        llcrnrlon=-88.0,urcrnrlon=-87.50,lat_ts=20,resolution='c')
+m.readshapefile('./geo_export_0e3da441-8fe8-4e11-9ca0-42ef75cab68e','chicago')
+lons = [-87.6,-87.7]
+lats = [41.65,41.75]
+x,y = m(lons,lats)
+plt.scatter(x,y,alpha=0.5,s=20)
+plt.title("Chicago Cenus Tracts")
+plt.show()
